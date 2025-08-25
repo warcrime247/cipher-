@@ -6,8 +6,7 @@ import random
 
 logging.basicConfig(filename='caesar_cipher.log', level=logging.DEBUG, format='%(asctime)s:%(levelname)s:%(message)s')
 
-MASTER_KEY = 69  # Master key fixed shift
-
+MASTER_KEY = 69 
 class CaesarCipher:
     def __init__(self, shift=0, use_master_key=False):
         self.shift = shift
