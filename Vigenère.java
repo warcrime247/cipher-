@@ -1,6 +1,5 @@
 public class VigenereCipher {
 
-    // Generate the repeated key to match plaintext length
     public static String generateKey(String text, String key) {
         StringBuilder keyBuilder = new StringBuilder(key);
         while (keyBuilder.length() < text.length()) {
@@ -9,7 +8,6 @@ public class VigenereCipher {
         return keyBuilder.substring(0, text.length()).toUpperCase();
     }
 
-    // Encrypt the plaintext using the Vigenere cipher
     public static String encrypt(String plaintext, String key) {
         StringBuilder result = new StringBuilder();
         String generatedKey = generateKey(plaintext, key);
@@ -23,14 +21,12 @@ public class VigenereCipher {
                 char encryptedChar = (char) ((p + k) % 26 + base);
                 result.append(encryptedChar);
             } else {
-                // Keep non-letter characters unchanged
                 result.append(plainChar);
             }
         }
         return result.toString();
     }
 
-    // Decrypt the ciphertext using the Vigenere cipher
     public static String decrypt(String ciphertext, String key) {
         StringBuilder result = new StringBuilder();
         String generatedKey = generateKey(ciphertext, key);
